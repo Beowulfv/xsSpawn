@@ -28,7 +28,7 @@ class CfgExileCustomCode
 	ExileServer_object_player_createBambi = "xs\spawn\Overwrites\ExileServer_object_player_createBambi.sqf";
 };
 
-Step 4: In your mission root open config.cpp and add the following to the top of your config.cpp
+Step 4: In your mission root open config.cpp add the following to the top of your config.cpp
 
 #include "xs\spawn\CfgBaseSpawn.hpp"
  
