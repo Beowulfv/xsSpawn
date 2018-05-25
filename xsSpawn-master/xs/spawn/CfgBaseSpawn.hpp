@@ -13,7 +13,7 @@ class CfgBaseSpawn
 	*/
 	ExileBaseSpawnLevelRequired = 1;
 	/*
-		Allow everyone with Build Rights to Spawn at the Flag
+		Allow everyone with Build Rights to Spawn at the Flag. Turn off for Flag Owner Spawn ONLY
 		1 = On 0 = Off
 		
 		Default: 1
