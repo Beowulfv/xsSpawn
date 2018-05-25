@@ -47,26 +47,26 @@ ExileBaseRespawnTimeLimit = 900;
 */
 ExileBaseSpawnLevelRequired = 1;
 /*
-	"ExileOwnerUID" - Only the owner of the flag can spawn at the flag
-	"ExileTerritoryBuildRights" - Everyone on the buildrights can spawn at the flag
-	
-	Default: "ExileTerritoryBuildRights"
+	Allow everyone with Build Rights to Spawn at the Flag
+	1 = On 0 = Off
+		
+	Default: 1
 */
-ExileBaseSpawnAllowedType = "ExileTerritoryBuildRights";
+ExileBaseSpawnBuildRights = 1;
 /*
 	Allow Halo Spawn option for Base Spawn
 	1 = On 0 = Off
 	
 	Default: 1
 */
-ExileHaloSpawn = 1;
+ExileBaseSpawnHalo = 1;
 /*
 	Allow Ground Spawn option for Base Spawn 
 	1 = On 0 = Off
 		
 	Default: 1
 */
-ExileGroundSpawn = 1;
+ExileBaseSpawnGround = 1;
 
 Step 6: Open xs\spawn\Overwrites\ExileClient_gui_selectSpawnLocation_show.sqf and at the bottom you can edit the one liners to suit your server
 Each time a player spawns it will randomly select one of these lines to display on their spawn selection screen as seen in the above screenshot.
