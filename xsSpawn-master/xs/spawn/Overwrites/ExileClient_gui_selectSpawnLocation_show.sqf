@@ -13,9 +13,9 @@ private["_display","_spawnButton","_spawnButton2","_tipText","_tipTextList","_li
 
 ExileBaseRespawnTimeLimit = getNumber(missionConfigFile >> "CfgBaseSpawn" >> "ExileBaseRespawnTimeLimit");
 ExileBaseSpawnLevelRequired = getNumber(missionConfigFile >> "CfgBaseSpawn" >> "ExileBaseSpawnLevelRequired");
-ExileBaseSpawnAllowedType = getText(missionConfigFile >> "CfgBaseSpawn" >> "ExileBaseSpawnAllowedType");
-ExileHaloSpawn = getNumber(missionConfigFile >> "CfgBaseSpawn" >> "ExileHaloSpawn");
-ExileGroundSpawn = getNumber(missionConfigFile >> "CfgBaseSpawn" >> "ExileGroundSpawn");
+ExileBaseSpawnBuildRights = getNumber(missionConfigFile >> "CfgBaseSpawn" >> "ExileBaseSpawnBuildRights");
+ExileBaseSpawnHalo = getNumber(missionConfigFile >> "CfgBaseSpawn" >> "ExileBaseSpawnHalo");
+ExileBaseSpawnGround = getNumber(missionConfigFile >> "CfgBaseSpawn" >> "ExileBaseSpawnGround");
 
 if(isNil "spawnRegistry") then 
 {
@@ -31,8 +31,8 @@ fn_checkRespawnDelay = {
 		_baseName = _x select 0;
 		_time = _x select 1;
 		
-		if(isNil "_baseName") exitWith { true; };
-		if(isNil "_time") exitWith { true; };
+		if(isNil "_baseName") exitWith {true;};
+		if(isNil "_time") exitWith {true;};
 		
 		if(_baseName isEqualTo _markerName) then 
 		{
@@ -77,9 +77,10 @@ _playerUID = getPlayerUID player;
 playerFlags = [];
 {
 	_flag = _x;
-	_spawnRights = _x getVariable [ExileBaseSpawnAllowedType, []];
+	_owner = _flag getVariable ["ExileOwnerUID", ""];
+	_buildRights = _x getVariable["ExileTerritoryBuildRights",[]];
 	_territoryLevelConfig =_x getVariable ["ExileTerritoryLevel", 0];
-	if (_playerUID in _spawnRights) then
+	if (_playerUID isEqualTo _owner || (ExileBaseSpawnBuildRights isEqualTo 1)&&(_playerUID in _buildRights)) then
 	{	
 		if(_territoryLevelConfig >= ExileBaseSpawnLevelRequired)then
 		{
@@ -116,13 +117,13 @@ fnc_selectionChange = {
 		ctrlMapAnimCommit _mapControl;
 		_spawnButton = _display displayCtrl 1600;
 		_spawnButton2 = _display displayCtrl 1601;
-		if(ExileHaloSpawn isEqualTo 1)then
+		if(ExileBaseSpawnHalo isEqualTo 1)then
 		{
 			_spawnButton ctrlEnable true;
 		}else{
 			_spawnButton ctrlEnable false;
 		};
-		if(ExileGroundSpawn isEqualTo 1)then
+		if(ExileBaseSpawnGround isEqualTo 1)then
 		{
 			_spawnButton2 ctrlEnable true;
 		}else{
