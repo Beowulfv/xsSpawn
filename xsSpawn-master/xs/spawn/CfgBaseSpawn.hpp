@@ -13,24 +13,24 @@ class CfgBaseSpawn
 	*/
 	ExileBaseSpawnLevelRequired = 1;
 	/*
-		"ExileOwnerUID" - Only the owner of the flag can spawn at the flag
-		"ExileTerritoryBuildRights" - Everyone on the buildrights can spawn at the flag
+		Allow everyone with Build Rights to Spawn at the Flag
+		1 = On 0 = Off
 		
-		Default: "ExileTerritoryBuildRights"
+		Default: 1
 	*/
-	ExileBaseSpawnAllowedType = "ExileTerritoryBuildRights";
+	ExileBaseSpawnBuildRights = 1;
 	/*
 		Allow Halo Spawn option for Base Spawn
 		1 = On 0 = Off
 		
 		Default: 1
 	*/
-	ExileHaloSpawn = 1;
+	ExileBaseSpawnHalo = 1;
 	/*
 		Allow Ground Spawn option for Base Spawn 
 		1 = On 0 = Off
 		
 		Default: 1
 	*/
-	ExileGroundSpawn = 1;
+	ExileBaseSpawnGround = 1;
 };
