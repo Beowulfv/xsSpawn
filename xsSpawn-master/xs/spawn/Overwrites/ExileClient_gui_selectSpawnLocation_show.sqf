@@ -112,6 +112,8 @@ fnc_selectionChange = {
 		createMarker [markerName,getPosATL _flag];
 		ExileClientSelectedSpawnLocationMarkerName = markerName;
 		_display = uiNamespace getVariable ["xstremeGroundorHaloDialog",displayNull];
+		_spawnButton = _display displayCtrl 1600;
+    		_spawnButton ctrlEnable true;
 		_mapControl = _display displayCtrl 1300;
 		_mapControl ctrlMapAnimAdd [1, 0.1, getMarkerPos ExileClientSelectedSpawnLocationMarkerName]; 
 		ctrlMapAnimCommit _mapControl;
